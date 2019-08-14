@@ -1,0 +1,107 @@
+%%%% Decorated
+%calligraphic letters
+\newcommand*{\Bcal}{\mathcal{B}}
+\newcommand*{\Ecal}{\mathcal{E}}
+\newcommand*{\Fcal}{\mathcal{F}}
+\newcommand*{\Hcal}{\mathcal{H}}
+
+% letters with bar
+\newcommand*{\xbar}{\bar{x}}
+\newcommand*{\ybar}{\bar{y}}
+
+% letters with tilde
+\newcommand*{\xtilde}{\tilde{x}}
+
+% Packages
+\usepackage[utf8x]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[a4paper,top=2.54cm,bottom=2.0cm,left=2.0cm,right=2.54cm]{geometry}
+\usepackage{hyperref}
+\usepackage{mathtools}
+\usepackage{setspace}
+\usepackage{enumitem}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{suffix}
+\usepackage{todonotes} % Required for the boxes that questions appear in
+\usepackage{notation}
+\usepackage{imakeidx}
+\usepackage[mark,raisemark=0.97\paperheight]{gitinfo2}
+\renewcommand{\gitMark}{\gitAbbrevHash{} \textbullet{} \gitAuthorName{} \textbullet{} \gitAuthorIsoDate}
+\usepackage[brazil]{babel}
+
+% Create the command used for questions
+
+\newcommand{\question}[1] % This is what you will use to create a new question
+{
+\par\noindent % Creates a new unindented paragraph
+\phantomsection % Needed for hyperref compatibility with the \addcontensline command
+\addcontentsline{faq}{questions}{#1} % Adds the question to the list of questions
+\todo[inline, color=green!40]{\textbf{#1}} % Uses the todonotes package to create a fancy box to put the question
+\vspace{1em} % White space after the question before the start of the answer
+}
+%%---------------------- Hide Bibliography Title
+\usepackage{etoolbox}
+\patchcmd{\thebibliography}{\chapter*{\bibname}}{}{}{}
+%%------------------------- Colors --------------------------%%
+
+\definecolor{Floresta}{rgb}{0.13,0.54,0.13}
+\definecolor{Rosadif}{rgb}{0.6196,0.1254,0.6980} %9E20B2
+
+\definecolor{Rosa}{rgb}{0.8705, 0.0862, 0.5058} %DE1681
+\definecolor{Verdeest}{rgb}{0.0549, 0.7529, 0.1450} %14C025
+\definecolor{Verde}{rgb}{0.1254,0.70196,0.1254} %20B320
+
+\definecolor{OrangeRed}{rgb}{0.9294,0.0509,0.3529} %ED135A
+\definecolor{Laranja}{rgb}{1,0.4352941176, 0}  %FF6F00
+\definecolor{Amarelo}{rgb}{0.9215, 0.8196, 0.18}   %EBD12E
+
+%%------------------------ Extra Commands -------------------%%
+
+\DeclareMathOperator{\sgn}{\textrm{sgn}}
+\newcommand{\sen}{{\rm sen}}
+\newcommand{\Ker}{{\rm Ker}}
+\newcommand{\codim}{{\rm codim}}
+\newcommand{\Ran}{{\rm Ran}}
+\newcommand{\Li}{{\mathcal{L}^c (X, Y) }}
+
+%%----------------------- Theorems -----------------%%
+
+\theoremstyle{plain}
+\newtheorem{thm}{Theorem}[chapter] % reset theorem numbering for each chapter
+
+\theoremstyle{definition}
+\newtheorem{definicao}[thm]{Definição}
+
+\theoremstyle{definition}
+\newtheorem{exemplo}[thm]{Exemplo}
+
+\theoremstyle{definition}
+\newtheorem{problema}[thm]{Exercício}
+
+
+\theoremstyle{definition}
+\newtheorem{corolario}[thm]{Corolário}
+
+\theoremstyle{definition}
+\newtheorem{teorema}[thm]{Teorema}
+
+\theoremstyle{definition}
+\newtheorem{afirmacao}[thm]{Afirmação}
+
+\theoremstyle{definition}
+\newtheorem{proposicao}[thm]{Proposição}
+
+\theoremstyle{definition}
+\newtheorem{observacao}[thm]{Observação}
+
+\theoremstyle{definition}
+\newtheorem{lema}[thm]{Lema}
+
+\theoremstyle{definition}
+\newtheorem{sublema}[thm]{Sublema}
+
+\theoremstyle{definition}
+\newtheorem{notacao}[thm]{Notação}
+
