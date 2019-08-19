@@ -72,4 +72,63 @@ Seja \(f\colon\Reals^n\to\Reals\) e sejam \(B\subseteq A\subseteq\Reals^n\). Se
   \item
     \end{enumerate}
 \end{proof}
+
+\section{PNL Exercício 1 - Lista 1}
+\label{sec:org41d184a}
+
+a) \[\inf_{x\in A} f(x)=\min\{\inf_{x\in B}f(x), \inf_{x\in A\setminus B}f(x)\}\leq\inf_{x\in B}f(x).\]
+
+b)
+
+\section{PNL Exercício 2 - Lista 1}
+\label{sec:org8affeec}
+
+Considere a função \(f\colon\Reals\to\Reals\) dada por \(f(x)\coloneqq\exp(x)\). Considere \(\Omega=\Naturals\).
+Então cada ponto \(\bar{x}\in\Omega\) minimiza \(f\) localmente e, como \(f\) é injetora temos que \(f(x)\not=f(y)\)
+sempre que \(x\not= y\).
+
+\section{PNL Exercício 3 - Lista 1}
+\label{sec:orga567c7d}
+Primeiramente, note que o conjunto \(f(\Omega)\) é compacto pois \(f\) é contínua e \(\Omega\) é compacto.
+
+Vamos mostrar que \(\alpha\coloneqq\inf_{x\in\Omega}f(x)\in f(\Omega\)$\backslash$) e \(\beta\coloneqq\sup_{x\in\Omega}f(x)\in f(\Omega)\).
+Como \(f(\Omega)\) é fechado temos que \(f(\Omega)=\overline{f(\Omega)}\). Portanto é suficiente mostrar que 
+\(\alpha,\beta\in\overline{f(\Omega)}\). Seja \(\varepsilon\in\Reals_{++}\) e note que se \(\alpha +\varepsilon\mathbb{B}\cap f(\Omega)=\varnothing\) então \(\inf_{x\in\Omega}f(x)=\inf f(\Omega)\geq\alpha+\varepsilon\).
+Isso implica que \(\inf f(\Omega) > \alpha\). Contradição. (escreve analogamente pra \(\beta\))
+
+
+\section{PNL Exercício 4 - Lista 1}
+\label{sec:org026ff9d}
+
+Considere a função \(f\colon\Reals\setminus\{0\}\to\Reals\setminus\{0\}\) dada por \(f(x)\coloneqq\frac{1}{x}\). Se consideramos
+\(\Omega=[-1,0)\), temos que \(f\) é contínua em \(\Omega\) e que \(\Omega\) é limitado, mas não fechado.
+Portanto não vale o Teorema de Bolzano-Weierstrass e \(f\) não possui minimizador, de fato \(f\) é ilimitada em \(\Omega\).
+Similarmente, se \(\Omega=[-1,0]\) temos que \(\Omega\) é compacto mas \(f\) não é contínua em \(\Omega\) e tb n vale o teorema
+Ainda\ldots{}
+
+\section{PNL Exercício 5 - Lista 1}
+\label{sec:org5714b88}
+
+Como \(f\) é contínua, temos que o conjunto de nível dado no enunciado é fechado. Além disso, temos
+por hipótese que o conjunto é limitado. Assim, o resultado segue aplicando o exercicio 3
+
+\section{PNL Exercício 6 - Lista 1}
+\label{sec:orga03c240}
+
+Seja \(x\in\Reals^n\) e considere o conjunto de nível \[N\coloneqq\{y\in\Reals^n\,\colon f(y)\leq f(x)\}.\]
+Como \(f\) é contínua temos que \(N\) é fechado. Agora suponha que \(N\) não é limitado,
+então existe uma sequencia \(\{y_n\}_{n\in\Naturals}\) tal que \(\|y_n\|\rightarrow\infty\) mas \(f(y_n)\leq f(x)\) para
+todo \(n\in\Naturals\), o que contradiz a hipótese de que \(f\) é coerciva. Assim concluímos que \(N\) é compacto e o resultado 
+segue do exercicio 3.
+
+\section{PNL Exercício 7 - Lista 1}
+\label{sec:org290910a}
+a) Considere \(f(x)=\exp(x)\) e \(\Omega=\{0\}\)
+
+b) Considere \(f(x)=-x^2\) e \(\Omega=\{0\}\)
+
+c) Considere \(f(x)=x^3\) e \(\Omega=\Reals\)
+
+d) Considere \(f(x)=x^3\) e \(\Omega=\Reals\)
+
 \end{document}
