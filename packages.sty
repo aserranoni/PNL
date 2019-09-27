@@ -1,107 +1,138 @@
-%%%% Decorated
-%calligraphic letters
-\newcommand*{\Bcal}{\mathcal{B}}
-\newcommand*{\Ecal}{\mathcal{E}}
-\newcommand*{\Fcal}{\mathcal{F}}
-\newcommand*{\Hcal}{\mathcal{H}}
 
-% letters with bar
-\newcommand*{\xbar}{\bar{x}}
-\newcommand*{\ybar}{\bar{y}}
+%------------------- General ---------------------%
 
-% letters with tilde
-\newcommand*{\xtilde}{\tilde{x}}
-
-% Packages
-\usepackage[utf8x]{inputenc}
-\usepackage[T1]{fontenc}
-\usepackage[a4paper,top=2.54cm,bottom=2.0cm,left=2.0cm,right=2.54cm]{geometry}
+\usepackage[]{babel} 
+\usepackage{inputenc} 
+\usepackage[T1]{fontenc} 
 \usepackage{hyperref}
+\usepackage{verbatim}
+
+% ------------- Cross-Reference ----------%
+
+\usepackage{xr}
+
+% ------------------ Math -------------------------%
+
 \usepackage{mathtools}
-\usepackage{setspace}
-\usepackage{enumitem}
-\usepackage{amsmath}
+\usepackage{amsmath} 
+\usepackage{amsthm}  
 \usepackage{amssymb}
-\usepackage{amsthm}
-\usepackage{suffix}
-\usepackage{todonotes} % Required for the boxes that questions appear in
-\usepackage{notation}
-\usepackage{imakeidx}
-\usepackage[mark,raisemark=0.97\paperheight]{gitinfo2}
-\renewcommand{\gitMark}{\gitAbbrevHash{} \textbullet{} \gitAuthorName{} \textbullet{} \gitAuthorIsoDate}
-\usepackage[brazil]{babel}
+\usepackage{bbm}
+\usepackage{amsfonts}
+\usepackage{optidef}
+%----------------- Aesthetic ------------------%
 
-% Create the command used for questions
+\usepackage{enumitem}
+\usepackage[a4paper,top=2.54cm,bottom=2.0cm,left=2.0cm,right=2.54cm]{geometry} 
 
-\newcommand{\question}[1] % This is what you will use to create a new question
-{
-\par\noindent % Creates a new unindented paragraph
-\phantomsection % Needed for hyperref compatibility with the \addcontensline command
-\addcontentsline{faq}{questions}{#1} % Adds the question to the list of questions
-\todo[inline, color=green!40]{\textbf{#1}} % Uses the todonotes package to create a fancy box to put the question
-\vspace{1em} % White space after the question before the start of the answer
-}
-%%---------------------- Hide Bibliography Title
-\usepackage{etoolbox}
-\patchcmd{\thebibliography}{\chapter*{\bibname}}{}{}{}
-%%------------------------- Colors --------------------------%%
+%----------------- Colors ---------------------%
 
+\usepackage[dvipsnames,usenames]{xcolor}
+
+%% -------- https://www.colorspire.com/rgb-color-wheel/ -------------%%
 \definecolor{Floresta}{rgb}{0.13,0.54,0.13}
 \definecolor{Rosadif}{rgb}{0.6196,0.1254,0.6980} %9E20B2
-
 \definecolor{Rosa}{rgb}{0.8705, 0.0862, 0.5058} %DE1681
 \definecolor{Verdeest}{rgb}{0.0549, 0.7529, 0.1450} %14C025
 \definecolor{Verde}{rgb}{0.1254,0.70196,0.1254} %20B320
-
 \definecolor{OrangeRed}{rgb}{0.9294,0.0509,0.3529} %ED135A
 \definecolor{Laranja}{rgb}{1,0.4352941176, 0}  %FF6F00
 \definecolor{Amarelo}{rgb}{0.9215, 0.8196, 0.18}   %EBD12E
 
-%%------------------------ Extra Commands -------------------%%
+% ---------------- Naipes ----------------------%
 
-\DeclareMathOperator{\sgn}{\textrm{sgn}}
+
+\DeclareSymbolFont{extraup}{U}{zavm}{m}{n}
+\DeclareMathSymbol{\varheart}{\mathalpha}{extraup}{86}
+\DeclareMathSymbol{\vardiamond}{\mathalpha}{extraup}{87}
+\newcommand{\heart}{\ensuremath\heartsuit}
+\newcommand{\diamonde}{\ensuremath\diamondsuit}
+
+
+% ---------------- Git Info --------------------%
+
+\usepackage[mark,raisemark=0.97\paperheight]{gitinfo2}
+\renewcommand{\gitMark}{\gitAbbrevHash{} \textbullet{} \gitAuthorName{} \textbullet{} \gitAuthorIsoDate}
+
+%---------------- Notation ---------------------%
+
+
+
+\newcommand{\Conv}{{\rm Conv}}  %envória convexa
+\newcommand{\mdc}{{\rm mdc}}
+\newcommand{\sgn}{{\rm sgn}}
 \newcommand{\sen}{{\rm sen}}
-\newcommand{\Ker}{{\rm Ker}}
-\newcommand{\codim}{{\rm codim}}
-\newcommand{\Ran}{{\rm Ran}}
-\newcommand{\Li}{{\mathcal{L}^c (X, Y) }}
+\newcommand{\tg}{{\rm tg}}
+\newcommand{\mmc}{{\rm mmc}}
+%\newcommand{\mdc}{{\rm mdc}}
+\newcommand{\cotg}{{\rm cotg}}
+\newcommand{\cossec}{{\rm cossec}}
+\newcommand{\Spec}{{\rm Spec}}
+\newcommand{\arctg}{{\rm arctg}}
+\newcommand{\arcsen}{{\rm arcsen}}
+\newcommand{\dropsign}[1]{\smash{\llap{\raisebox{-.5\normalbaselineskip}{$#1$\hspace{2\arraycolsep}}}}}%divisão polinomial
 
-%%----------------------- Theorems -----------------%%
 
-\theoremstyle{plain}
-\newtheorem{thm}{Theorem}[chapter] % reset theorem numbering for each chapter
+\newcommand{\negrito}[1]{\mbox{\boldmath{#1}}} 
+
+
+
+
+%Espaço dos operadores lineares de #1 (tem várias coisas que podem ser #1)
+% Exemplo: \Lin{V,W}
+\newcommand{\Lin}[1]{\mathcal{L}(#1)}
+
+% Núcleo de uma Transformação linear
+% Exemplo: \Ker(T)
+\DeclareMathOperator{\Ker}{Ker}
+
+% Imagem de uma Transformação linear
+% Exemplo: \Im(T)
+%\DeclareMathOperator{\Im}{Im}
+
+% Restrição da função #1 ao conjunto #2
+% Exemplo: \rest{T}{W}
+\newcommand{\rest}[2]{#1_{\upharpoonright #2}}
+
+% Conjunto dos números reais
+% Exemplo: \Reals
+\newcommand{\Reals}{\mathbb{R}}
+
+% Conjunto dos números Inteiros
+% Exemplo: \Integers
+\newcommand{\Integers}{\mathbb{Z}}
+
+% Conjunto dos números Racionais
+% Exemplo: \Rationals
+\newcommand{\Rationals}{\mathbb{Q}}
+
+% Conjunto dos números Naturais
+% Exemplo: \Naturals
+\newcommand{\Naturals}{\mathbb{N}}
+
+% Conjunto dos números Complexos
+% Exemplo: \Complex
+\newcommand{\Complex}{\mathbb{C}}
+
+% Conjunto das Matrizes de dimensão #1 com coeficientes em #2
+% Exemplo: \m{nxm}{K}
+\newcommand{\m}[2]{\mathcal{M}_{#1}(#2)}
+
+% Produto interno de #1 com #2
+% Exemplo: \iprod{x}{y}
+\newcommand{\iprod}[2]{\langle #1,#2 \rangle}
+
+%%% ----------------------------------- Theorems -------------------------%%
+
 
 \theoremstyle{definition}
-\newtheorem{definicao}[thm]{Definição}
+\newtheorem{theorem}{Theorem}
 
-\theoremstyle{definition}
-\newtheorem{exemplo}[thm]{Exemplo}
+\newtheorem{corollary}[theorem]{Corollary}
 
-\theoremstyle{definition}
-\newtheorem{problema}[thm]{Exercício}
+\newtheorem{lemma}[theorem]{Proposition}
 
+\newtheorem*{definition}{Definition}
 
-\theoremstyle{definition}
-\newtheorem{corolario}[thm]{Corolário}
-
-\theoremstyle{definition}
-\newtheorem{teorema}[thm]{Teorema}
-
-\theoremstyle{definition}
-\newtheorem{afirmacao}[thm]{Afirmação}
-
-\theoremstyle{definition}
-\newtheorem{proposicao}[thm]{Proposição}
-
-\theoremstyle{definition}
-\newtheorem{observacao}[thm]{Observação}
-
-\theoremstyle{definition}
-\newtheorem{lema}[thm]{Lema}
-
-\theoremstyle{definition}
-\newtheorem{sublema}[thm]{Sublema}
-
-\theoremstyle{definition}
-\newtheorem{notacao}[thm]{Notação}
-
+\newtheorem*{remark}{Remark}
+\newtheorem*{example}{Example}
