@@ -10,20 +10,27 @@
 
 \maketitle
 
-\section*{Lista 1}
+\section{Lista 1}
 
 \begin{problema}
-Seja \(f\colon\Reals^n\to\Reals\) e sejam \(B\subseteq A\subseteq\Reals^n\). Se
-\(\inf_{x\in\Reals^n}f(x)=\alpha\in\Reals\), então
+  Seja \(f\colon\Reals^n\to\Reals\) e sejam
+  \(B\subseteq A\subseteq\Reals^n\). Se
+ \(\inf_{x\in\Reals^n}f(x)=\alpha\in\Reals\), então
 \begin{enumerate}[label=(\roman*)]
 \item \(\inf_{x\in A}f(x)\leq\inf_{x\in B}f(x)\);
-\item todo minimizador de \(f\) em \(A\) é um minimizador de \(f\) em \(B\).
+\item todo minimizador de \(f\) em \(A\) é um minimizador de \(f\)
+  em \(B\).
 \end{enumerate}
 \end{problema}
 \begin{proof}[Solução]\hfill
   \begin{enumerate}[label=(\roman*)]
-  \item \[\inf_{x\in A} f(x)=\min\{\inf_{x\in B}f(x), \inf_{x\in A\setminus B}f(x)\}\leq\inf_{x\in B}f(x).\]
-  \item
+  \item \[\inf_{x\in A} f(x)=
+      \min\{\inf_{x\in B}f(x), \inf_{x\in A\setminus B}f(x)\}\leq
+      \inf_{x\in B}f(x).\]
+  \item Seja \(x\) tal que \(f(x)\leq f(y)\) para cada \(y\in A\). Como
+    \(B\subseteq A\) temos que \(f(x)\leq f(y)\) para cada \(y\in B\).
+    Logo,
+    \(x\) minimiza \(f\) em \(B\).\qedhere
     \end{enumerate}
 \end{proof}
 
@@ -31,50 +38,80 @@ Seja \(f\colon\Reals^n\to\Reals\) e sejam \(B\subseteq A\subseteq\Reals^n\). Se
 Exercício 2 - Lista 1
 \end{problema}
 \begin{proof}[Solução]
-Considere a função \(f\colon\Reals\to\Reals\) dada por \(f(x)\coloneqq\exp(x)\). Considere \(\Omega=\Naturals\).
-Então cada ponto \(\bar{x}\in\Omega\) minimiza \(f\) localmente e, como \(f\) é injetora temos que \(f(x)\not=f(y)\)
-sempre que \(x\not= y\).
+  Considere a função \(f\colon\Reals\to\Reals\) dada por
+  \(f(x)\coloneqq\exp(x)\). Considere \(\Omega=\Naturals\).
+  Então cada ponto \(\bar{x}\in\Omega\) minimiza \(f\) localmente e,
+  como \(f\) é injetora temos que \(f(x)\not=f(y)\)
+  sempre que \(x\not= y\).\qedhere
 \end{proof}
 
 \begin{problema}
 Exercício 3 - Lista 1 
 \end{problema}
 \begin{proof}[Solução]
-Primeiramente, note que o conjunto \(f(\Omega)\) é compacto pois \(f\) é contínua e \(\Omega\) é compacto.
+ 
+Seja \(\{x_k\}_{k\in\Naturals}\subseteq \Omega\) uma sequência qualquer e
+considere a sequência \(\{f(x_k)\}_{k\in\Naturals}\subseteq\Reals\). Como
+\(\Omega\) é compacto temos que \(\{x_k\}_{k\in \Naturals}\) admite uma
+subsequência convergindo para algum \(x\in\Omega\). Neste caso, segue que
+\(\{f(x_k)\}_{k\in\Naturals}\) também admite uma subsequência convergindo
+para \(f(x)\). Como \(x\in Omega\) temos que
+\(f(x)\in f(\Omega)\). Mostramos
+assim que cada sequencia em \(f(\Omega)\) admite uma
+subsequência convergindo
+para um elemento do próprio \(f(\Omega)\), ou seja, \(f(\Omega)\) é
+compacto.
 
-Vamos mostrar que \(\alpha\coloneqq\inf_{x\in\Omega}f(x)\in f(\Omega\)$\backslash$) e \(\beta\coloneqq\sup_{x\in\Omega}f(x)\in f(\Omega)\).
-Como \(f(\Omega)\) é fechado temos que \(f(\Omega)=\overline{f(\Omega)}\). Portanto é suficiente mostrar que 
-\(\alpha,\beta\in\overline{f(\Omega)}\). Seja \(\varepsilon\in\Reals_{++}\) e note que se \(\alpha +\varepsilon\mathbb{B}\cap f(\Omega)=\varnothing\) então \(\inf_{x\in\Omega}f(x)=\inf f(\Omega)\geq\alpha+\varepsilon\).
-Isso implica que \(\inf f(\Omega) > \alpha\). Contradição. (escreve analogamente pra \(\beta\))
+Finalmente, vamos mostrar que \(\alpha\coloneqq\inf_{x\in\Omega}f(x)\in
+f(\Omega\)$\backslash$) e
+\(\beta\coloneqq\sup_{x\in\Omega}f(x)\in f(\Omega)\).
+Como \(f(\Omega)\) é fechado temos que
+\(f(\Omega)=\overline{f(\Omega)}\). Portanto é suficiente mostrar que 
+\(\alpha,\beta\in\overline{f(\Omega)}\). Seja
+\(\varepsilon\in\Reals_{++}\) e note que se
+\(\alpha +\varepsilon\mathbb{B}\cap f(\Omega)=\varnothing\)
+então \(\inf_{x\in\Omega}f(x)=\inf f(\Omega)\geq\alpha+\varepsilon\).
+Isso implica que \(\inf f(\Omega) > \alpha\).
+Contradição. [escrevemos analogamente pra \(\beta\)].
 \end{proof}
 
 \begin{problema}
 Exercício 4 - Lista 1
 \end{problema}
 \begin{proof}[Solução]
-Considere a função \(f\colon\Reals\setminus\{0\}\to\Reals\setminus\{0\}\) dada por \(f(x)\coloneqq\frac{1}{x}\). Se consideramos
-\(\Omega=[-1,0)\), temos que \(f\) é contínua em \(\Omega\) e que \(\Omega\) é limitado, mas não fechado.
-Portanto não vale o Teorema de Bolzano-Weierstrass e \(f\) não possui minimizador, de fato \(f\) é ilimitada em \(\Omega\).
-Similarmente, se \(\Omega=[-1,0]\) temos que \(\Omega\) é compacto mas \(f\) não é contínua em \(\Omega\) e tb n vale o teorema.
+  Considere a função
+  \(f\colon\Reals\setminus\{0\}\to\Reals\setminus\{0\}\)
+  dada por \(f(x)\coloneqq\frac{1}{x}\). Se consideramos
+  \(\Omega=[-1,0)\), temos que \(f\) é contínua em \(\Omega\) e
+  que \(\Omega\) é limitado, mas não fechado.
+  Portanto não vale o Teorema de Bolzano-Weierstrass e \(f\) não possui
+  minimizador, de fato \(f\) é ilimitada em \(\Omega\).
+  Similarmente, se \(\Omega=[-1,0]\) temos que \(\Omega\) é compacto
+  mas \(f\) não é contínua em \(\Omega\) e tb n vale o teorema.
 \end{proof}
 
 \begin{problema}
 Exercício 5 - Lista 1   
 \end{problema}
 \begin{proof}[Solução]
-Como \(f\) é contínua, temos que o conjunto de nível dado no enunciado é fechado. Além disso, temos
-por hipótese que o conjunto é limitado. Assim, o resultado segue aplicando o exercicio 3
+  Como \(f\) é contínua, temos que o conjunto de nível
+  dado no enunciado é fechado. Além disso, temos
+  por hipótese que o conjunto é limitado. Assim, o
+  resultado segue aplicando o exercicio 3.
 \end{proof}
 
 \begin{problema}
 Exercício 6 - Lista 1  
 \end{problema}
 \begin{proof}[Solução]
-Seja \(x\in\Reals^n\) e considere o conjunto de nível \[N\coloneqq\{y\in\Reals^n\,\colon f(y)\leq f(x)\}.\]
-Como \(f\) é contínua temos que \(N\) é fechado. Agora suponha que \(N\) não é limitado,
-então existe uma sequencia \(\{y_n\}_{n\in\Naturals}\) tal que \(\|y_n\|\rightarrow\infty\) mas \(f(y_n)\leq f(x)\) para
-todo \(n\in\Naturals\), o que contradiz a hipótese de que \(f\) é coerciva. Assim concluímos que \(N\) é compacto e o resultado 
-segue do exercicio 3.
+  Seja \(x\in\Reals^n\) e considere o conjunto de nível
+  \[N\coloneqq\{y\in\Reals^n\,\colon f(y)\leq f(x)\}.\]
+Como \(f\) é contínua temos que \(N\) é fechado. Agora suponha que
+\(N\) não é limitado,então existe uma sequencia \(\{y_n\}_{n\in\Naturals}\)
+tal que \(\|y_n\|\rightarrow\infty\) mas \(f(y_n)\leq f(x)\) para
+todo \(n\in\Naturals\), o que contradiz a hipótese de que
+\(f\) é coerciva. Assim concluímos que \(N\) é compacto e
+o resultado segue do exercicio 3.
 \end{proof}
 
 \begin{problema}
@@ -88,9 +125,54 @@ Exercício 7 - Lista 1
 \item Considere \(f(x)=x^3\) e \(\Omega=\Reals\).
 \end{enumerate}
 \end{proof}
+\section{Lista 1 - Old}
+\begin{problema}\label{rosenmin}
+Exercício 2
+\end{problema}
+\begin{proof}[Solução]
+  Iniciamos calculando uma forma polinomial para a função \(f\).
+  Daí, obtemos que
+  \begin{equation}\label{rosenfunc}
+   f(x_1,x_2)=100x_1^4+x_1^2-2x_1+100x_2^2-200x_1^2x_2+1. 
+  \end{equation}
+   Além disso, vamos calcular o vetor gradiente e a matriz hessiana de \(f\):
+\begin{equation}\label{gradrosen}
+  \nabla f(x_1,x_2)=\begin{pmatrix}
+    400x_1^3 + 2x_1-400x_1x_2 -2 \\
+    200 x_2 - 200x_1^2
+  \end{pmatrix}
+  \text{ e } \nabla^2 f(x_1,x_2)=\begin{pmatrix}
+    1200x_1^2+2-400x_2 & -400x_1 \\
+    -400x_1 & 200
+    \end{pmatrix}.
+\end{equation}
+Resolvendo o sistema \(\nabla f(x_1,x_2)=0\) nos dá a solução única
+\(x\coloneqq(1,1)^\top\). Feito isso verificamos que
+\[\nabla^2f(1,1)=\begin{pmatrix}
+    802 & -400 \\
+    -400 & 200 \end{pmatrix}\in\mathbb{S}^n_{++}.\]
+Assim, concluímos que \(x\) é o único minimizador global de \(f\).
+\end{proof}
 
-\section{Lista 2}
 
-
+\section{Lista 2 - Old}
+\begin{problema}
+Exercício  
+\end{problema}
+\begin{proof}[Solução]
+  Neste exercício faremos uso das contas feitas no
+  Exercício \ref{rosenmin}.
+  \begin{enumerate}
+  \item Primeiro, veja que \(d=-\nabla f(0,0)=(2,0)^\top\). Neste caso
+    segue que
+    \begin{align}
+      \phi(\alpha)=f(0+\alpha d)&=f((2\alpha,0)^\top)\\&=
+      100((-2\alpha)^2)^2+(1-2\alpha^2)\\&=
+      100(16\alpha^4)+4\alpha^2-4\alpha + 1.
+    \end{align}
+  \item Primeiro, vamos calcular a direção de Newton. Por definição, segue
+    \
+  \end{enumerate}
+\end{proof}
 
 \end{document}

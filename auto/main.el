@@ -7,6 +7,10 @@
     "latex2e"
     "article"
     "art12"
-    "packages"))
+    "packages")
+   (LaTeX-add-labels
+    "rosenmin"
+    "rosenfunc"
+    "gradrosen"))
  :latex)
 
