@@ -11,6 +11,8 @@
    (LaTeX-add-labels
     "rosenmin"
     "rosenfunc"
-    "gradrosen"))
+    "gradrosen"
+    "phiconv"
+    "alphabuscaex"))
  :latex)
 

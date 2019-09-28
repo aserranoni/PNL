@@ -122,12 +122,16 @@ Exercício 7 - Lista 1
 \item Considere \(f(x)=\exp(x)\) e \(\Omega=\{0\}\).
 \item Considere \(f(x)=-x^2\) e \(\Omega=\{0\}\).
 \item Considere \(f(x)=x^3\) e \(\Omega=\Reals\).
-\item Considere \(f(x)=x^3\) e \(\Omega=\Reals\).
+\item Considere \(f(x)=x^3\) e \(\Omega=\Reals\).\qedhere
 \end{enumerate}
 \end{proof}
+
+
 \section{Lista 1 - Old}
+
+
 \begin{problema}\label{rosenmin}
-Exercício 2
+Exercício 2 - 2.1 do NOCEDAL
 \end{problema}
 \begin{proof}[Solução]
   Iniciamos calculando uma forma polinomial para a função \(f\).
@@ -154,10 +158,57 @@ Resolvendo o sistema \(\nabla f(x_1,x_2)=0\) nos dá a solução única
 Assim, concluímos que \(x\) é o único minimizador global de \(f\).
 \end{proof}
 
+\begin{problema}
+  Exercício 15
+\end{problema}
+\begin{proof}[Solução]
+  
+\end{proof}
+
+\begin{problema}
+ Exercício 17 - 2.17 da ANA  
+ \end{problema}
+ \begin{proof}[Solução]
+   Fazendo algumas continhas, obtemos facilmente que
+   \(f^\prime(x)= 3x^2+2ax+b\) e
+  ainda que \(f^{\prime\prime}(x)=6x+2a\). Para que \(0\) seja maximizador
+  de
+  \(f\), precisamos que \(f^\prime(0) =0\) e que \(f^{\prime\prime}(0)<0\).
+  Analogamente para que \(1\) seja minimizador de \(f\) precisamos que
+  \(f^\prime(1)=0\) e que \(f^{\prime\prime}(1)>0\). Resolvendo o sistema
+  dado por estas equações obtemos a única soluçao \(b=0\) e \(a=-\frac{3}{2}\). 
+ \end{proof}
+
+\begin{problema}
+Exercício 18
+\end{problema}
+\begin{proof}[Solução]
+  Seja \(\overline{X}\coloneqq\{x\in X\,\colon f(x)=v^\ast\}\), sejam
+  \(x_1,x_2\in\overline{X}\), e seja \(\lambda\in [0,1]\). Como \(f\)
+  é convexa segue que \[f(\lambda x_1+ (1-\lambda)x_2)\leq\lambda
+    f(x_1)+(1-\lambda)f(x_2)=v^\ast.\]
+  Mas como \(v^\ast=\inf\{f(x)\,\colon x\in X\}\) também vale que
+  \[f(\lambda x_1+ (1-\lambda)x_2)\geq v^\ast.\]
+  Assim concluímos que \(f(\lambda x_1+ (1-\lambda)x_2)= v^\ast.\) Portanto,
+  segue que \(\lambda x_1 + (1-\lambda)x_2\in\overline{X}\) e logo
+  \(\overline{X}\) é convexo.
+\end{proof}
+
+\begin{problema}\label{phiconv}
+ Exercício 19
+\end{problema}
+\begin{proof}[Solução]
+  Sabemos que \(f\) é convexa se, e só se
+  \(\nabla^2f(x)\in\mathbb{S}^n_+\) para cada \(x\in\Reals^n\). Observando
+  que \(\phi^{\prime\prime}(\alpha)=d^\top\nabla^2f(x+\alpha d) d\),
+  concluímos que \(\phi^{\prime\prime}(\alpha)\geq 0\) para cada
+  \(\alpha\in\Reals\). Como este último fato acontece se e só se \(\phi\)
+  é convexa, o resultado segue.
+\end{proof}
 
 \section{Lista 2 - Old}
 \begin{problema}
-Exercício  
+Exercício 5  
 \end{problema}
 \begin{proof}[Solução]
   Neste exercício faremos uso das contas feitas no
@@ -165,14 +216,62 @@ Exercício
   \begin{enumerate}
   \item Primeiro, veja que \(d=-\nabla f(0,0)=(2,0)^\top\). Neste caso
     segue que
-    \begin{align}
+    \begin{align*}
       \phi(\alpha)=f(0+\alpha d)&=f((2\alpha,0)^\top)\\&=
       100((-2\alpha)^2)^2+(1-2\alpha^2)\\&=
       100(16\alpha^4)+4\alpha^2-4\alpha + 1.
-    \end{align}
+    \end{align*}
   \item Primeiro, vamos calcular a direção de Newton. Por definição, segue
-    \
+    \begin{align*}
+      d= (-\nabla^2f((0,0)^\top)^{-1}\nabla f((0,0)^\top)=\begin{pmatrix}
+        -\frac{1}{2} & 0 \\ 0 & -\frac{1}{200}\end{pmatrix}\begin{pmatrix}
+        -2 \\ 0 
+      \end{pmatrix}=\begin{pmatrix}1 \\ 0\end{pmatrix}.
+    \end{align*}
+    Daí, segue que
+    \[f((\alpha,0)^\top)=100((-\alpha)^2)^2+(1-\alpha)^2= 100\alpha^4+\alpha^2-2\alpha+1.\qedhere\]
   \end{enumerate}
+\end{proof}
+
+\begin{problema}\label{alphabuscaex}
+Exercício 6  
+\end{problema}
+\begin{proof}[Solução]
+  Primeiramente, notamos que \(\nabla f(x)=Ax + b\) e \(\nabla^2 f(x)=A\).
+  Como \(A\in\mathbb{S}^n_+\) temos que \(f\) é convexa e portanto pelo
+  Exercício \ref{phiconv} temos que
+  \(\phi(\alpha)\coloneqq f(x+ \alpha d)\) é convexa para todo
+  \(x,d\in\Reals^n\). Assim, podemos calcular o minimizador de phi
+  da seguinte maneira:
+  \begin{align*}
+    &\phi^\prime(\alpha)=0\\&
+    \iff\nabla f(x+\alpha d)^\top d=0 \\&
+    \iff (A(x+\alpha d) + b)^\top d=0 \\&
+    \iff ((Ax+b)^\top +\alpha (Ad)^\top)d=0 \\&
+    \iff \nabla f(x)^\top +\alpha d^\top d=0 \\&
+    \iff \alpha=-\frac{\nabla f(x)^\top d}{d^\top A d}.\qedhere
+   \end{align*}
+ \end{proof}
+
+\begin{problema}
+   Exercício 10
+\end{problema}
+\begin{proof}[Solução]
+ Primeiramente, note que \(\nabla f(x)=Ax-b\) e que \(x_{t+1}=x_t-\alpha\nabla
+ f(x_t)\). Assim, calculando \(\nabla f(x_{t+1})\) em termos de \(\nabla
+ f(x_t)\), obtemos que
+ \begin{align*}
+   \nabla f(x_{t+1})&= A(x_{t+1}) -b\\&
+   = A(x_t-\alpha\nabla f(x_t))-b\\&
+   = Ax -\alpha A\nabla f(x_t) -b \\&
+   = \nabla f(x_t) - \alpha A\nabla f(x_t).
+ \end{align*}
+ Finalmente, segue que
+ \begin{align*}
+   \nabla f(x_{t+1})^\top\nabla f(x_t)&
+                                        = (\nabla f(x_t) - \alpha A\nabla f(x_t))^\top\nabla f(x_t)\\&
+   = \nabla f(x_t)^\top\nabla f(x_t) -\alpha (A\nabla f(x_t))^\top\nabla f(x_t) \\&=\nabla f(x_t)^\top\nabla f(x_t) - \frac{\nabla f(x_t)^\top\nabla f(x_t)\nabla f(x_t)^\top A\nabla f(x_t)}{\nabla f(x_t)^\top A\nabla f(x_t)}\\&= \nabla f(x_t)^\top\nabla f(x_t) - \nabla f(x_t)^\top\nabla f(x_t) \\&= 0.\qedhere
+  \end{align*}
 \end{proof}
 
 \end{document}
