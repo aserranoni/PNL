@@ -55,7 +55,7 @@ considere a sequência \(\{f(x_k)\}_{k\in\Naturals}\subseteq\Reals\). Como
 \(\Omega\) é compacto temos que \(\{x_k\}_{k\in \Naturals}\) admite uma
 subsequência convergindo para algum \(x\in\Omega\). Neste caso, segue que
 \(\{f(x_k)\}_{k\in\Naturals}\) também admite uma subsequência convergindo
-para \(f(x)\). Como \(x\in Omega\) temos que
+para \(f(x)\). Como \(x\in \Omega\) temos que
 \(f(x)\in f(\Omega)\). Mostramos
 assim que cada sequencia em \(f(\Omega)\) admite uma
 subsequência convergindo
@@ -157,6 +157,47 @@ Resolvendo o sistema \(\nabla f(x_1,x_2)=0\) nos dá a solução única
     -400 & 200 \end{pmatrix}\in\mathbb{S}^n_{++}.\]
 Assim, concluímos que \(x\) é o único minimizador global de \(f\).
 \end{proof}
+\begin{problema}
+Exercício 3  
+\end{problema}
+\begin{proof}[Solução]
+Queremos resolver o seguinte problema não linear
+\begin{maxi}
+  {}{xy(x-y)}{\label{REP}}{}  
+    \addConstraint{x+y}{=8}
+    \addConstraint{x}{\geq 0}
+    \addConstraint{y}{\geq 0}.
+  \end{maxi}
+Utilizando a primeira restrição para obter que \(y=8-x\) e substituindo na
+função objetivo, obtemos o problema
+\begin{maxi}
+  {}{x(8-x)(x-())}{\label{REP}}{}  
+  \addConstraint{x+y}{=8}
+  \addConstraint{x}{\geq 0}
+  \addConstraint{y}{\geq 0}.
+\end{maxi}
+\end{proof}
+
+\begin{problema}
+  Exercício 7
+\end{problema}
+\begin{proof}[Solução]
+  Como \(A\) é positiva definida temos que \(f\) é convexa. Além disso
+  sabemos que \(\nabla f(x)=Ax-b\). Daí, segue que
+  \(\nabla f(x)=0\) se, e somente se \(Ax=b\). Dessa forma segue que
+  o conjunto dos minimizadores de \(f\) é dado por
+  \[\{x\in\mathbb{R}^n\,\colon Ax=b\}.\qedhere\]
+\end{proof}
+
+\begin{problema}
+  Exercício 14
+\end{problema}
+\begin{proof}[Solução]
+  Primeiro calculamos algumas coisas, obtendo
+  \begin{enumerate}
+  \item \(\phi(\alpha)=f(\alpha d)=\frac{\alpha^4d_2^2}{d}\)  
+  \end{enumerate}
+\end{proof}
 
 \begin{problema}
   Exercício 15
@@ -206,7 +247,35 @@ Exercício 18
   é convexa, o resultado segue.
 \end{proof}
 
+\begin{problema}
+Exercício 20 [CORREÇÃO NO ENUNCIADO: PODEMOS ASSUMIR QUE A MATRIZ \(A\) É
+POSITIVA SEMIDEFINIDA]  
+\end{problema}
+\begin{proof}[Solução]
+  Basta notar que \(\nabla^2 f(x)=A\). Daí temos que \(f\) é convexa e o
+  resultado segue.
+\end{proof}
+
 \section{Lista 2 - Old}
+\begin{problema}
+ Exercício 1
+\end{problema}
+\begin{proof}[Solução]
+  Por definição, a direção \(d\) é dada por \(d=-\nabla f(x)\). Segue
+  \[d^\top\nabla f(x)=-\nabla f(x)^\top M\nabla f(x).\]
+  Como \(M\) é positiva definida e \(\nabla f(x)\not =0\), obtemos que
+  \(d^\top\nabla f(x)<0\) e portanto \(d\) é uma direção de descida para \(f\)
+  a partir de \(x\).
+\end{proof}
+\begin{problema}
+Exercício 3
+\end{problema}
+\begin{proof}[Solução]
+  Primeiro, calculamos
+  \[\lim_{t}\frac{\alpha_{t+1}}{\alpha_t}=\lim_{t}\frac{t+1}{t} =1.\]
+  Finalmente aplicamos o Exercício anterior (2 L2-OLD) para concluir que
+  \(\{\alpha_t\}_{t\in\Naturals}\) converge sublinearmente para \(0\).
+\end{proof}
 \begin{problema}
 Exercício 5  
 \end{problema}
@@ -252,7 +321,27 @@ Exercício 6
     \iff \alpha=-\frac{\nabla f(x)^\top d}{d^\top A d}.\qedhere
    \end{align*}
  \end{proof}
-
+ \begin{problema}
+ Exercício 8  
+\end{problema}
+\begin{proof}[Solução]
+  Primeiro, calculamos \(\phi(\alpha)\coloneqq f(x+\alpha d)\), obtendo
+  \[\phi(\alpha)=(\frac{\alpha}{2}-(-1+\alpha))^2+\frac{(1-\frac{\alpha}{2})^2}{2}.\]
+  Além disso, calculando \(\nabla f(x)\) obtemos o resultado \((1 -2)^\top\).
+  Daí, vemos que para que \(\alpha\) satisfaça a condição de Armijo é necessário
+  que
+  \begin{align*}
+\phi(\alpha)=f(x+\alpha d)\leq f(x)+\frac{1}{8}\alpha
+    \nabla f(x)^\top d =\frac{3}{2}-\frac{3\alpha}{16}
+  \end{align*}
+ Finalmente vamos aplicar o algorítmo. Vamos verificar se \(\alpha=1\) satisfaz
+ a desigualdade acima. Calculando \(\phi(1)\) obtemos o valor \(\frac{19}{8}\).
+ Por outro lado, temos que \(\frac{3}{2}-\frac{3}{16}=\frac{21}{16}\) e como
+ esse número é estritamente maior que \(\phi(1)\) o algorítmo rejeita
+ \(\alpha=1\). Depois disso, testamos \(\alpha=\frac{1}{2}\). Computamos
+ \(\phi(\frac{1}{2})\) para obter o valor \(\frac{27}{32}\). Depois calculamos
+ \(\frac{3}{2}-\frac{3}{16}\frac{1}{2}=\frac{45}{32}\). Daí o algorítmo termina aceitando \(\alpha=\frac{1}{2}\).
+\end{proof}
 \begin{problema}
    Exercício 10
 \end{problema}
@@ -272,6 +361,60 @@ Exercício 6
                                         = (\nabla f(x_t) - \alpha A\nabla f(x_t))^\top\nabla f(x_t)\\&
    = \nabla f(x_t)^\top\nabla f(x_t) -\alpha (A\nabla f(x_t))^\top\nabla f(x_t) \\&=\nabla f(x_t)^\top\nabla f(x_t) - \frac{\nabla f(x_t)^\top\nabla f(x_t)\nabla f(x_t)^\top A\nabla f(x_t)}{\nabla f(x_t)^\top A\nabla f(x_t)}\\&= \nabla f(x_t)^\top\nabla f(x_t) - \nabla f(x_t)^\top\nabla f(x_t) \\&= 0.\qedhere
   \end{align*}
+\end{proof}
+
+\begin{problema}
+Exercício 11  
+\end{problema}
+\begin{proof}[Solução]
+ Como estamos usando busca linear \textbf{exata}, temos para cada
+ \(k\in\Naturals\):
+ \[\phi^\prime(\alpha_k)=\nabla f(x_k+\alpha_kd_k)^\top d_k=\nabla f(x_{k+1})^\top d_k=0.\]
+ No contexto do método do gradiente, temos \(d_k=-\nabla f(x_k)\). Logo
+ \[-\nabla f(x_{k+1})\nabla f(x_k)=0.\]
+ Daí, o resultado segue.\qedhere
+\end{proof}
+
+\begin{problema}
+Exercício 16    
+\end{problema}
+\begin{proof}[Solução]
+Como estamos aplicando o método de Newton, teremos
+\(d_1=-\frac{f^\prime(x_1)}{f^{\prime\prime}(x_1)}\). Como \(x_1\) satisfaz
+ \(f^\prime(x_1)=0\) teremos \(d_1=0\).
+\end{proof}
+  
+\section{Outros Exercícios}
+\subsection{Nocedal}
+\begin{problema}
+  Exercício 2.6
+\end{problema}
+\begin{proof}[Solução]
+Seja \(x\) um mínimo local isolado, então existe uma vizinhança \(V\) de \(x\)
+tal que \(x\) é o único mínimo local de \(f\) em \(V\). Neste caso, temos que
+\(f(v)>f(x)\) para cada \(x\not = v\in V\). Logo \(x\) é mínimo local estrito em \(V\).  
+\end{proof}
+NOTE QUE NÂO VALE A VOLTA!!!!!
+
+\subsection{P1 do Ano Passado}
+\begin{problema}
+  Exercício 4
+\end{problema}
+\begin{proof}[Solução]
+Como \(x_1\in L_1\) e \(x_2\in L_2\), podemos escrever \(L_1=x_1+\alpha d\) e
+\(L_2=x_2+\alpha d\). Além disso vamos considerar \(\phi_1(\alpha)\coloneqq
+f(x_1+\alpha d)\) e \(\phi_2(\alpha)\coloneqq f(x_2+\alpha d)\). Como \(x_1\) e
+\(x_2\) são minimizadores, também temos que
+\(\phi_1^\prime(0)=\phi_2^\prime(0)=0.\) Sabendo que
+\(\phi_i^\prime(\alpha)=\nabla f(x_i+\alpha d)^\top d\) para \(i=1,2\) e que
+\(\nabla f(x)=Ax+b\), segue
+\begin{enumerate}
+\item \((Ax_1+b)^\top d= x_1^\top Ad +b^\top d = 0\);
+\item \((Ax_2+b)^\top d= x_2^\top Ad+ b^\top d = 0\).  
+\end{enumerate}
+
+Subtraindo a primeira equação da segunda o resultado segue.
+
 \end{proof}
 
 \end{document}
