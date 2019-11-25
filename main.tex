@@ -9,7 +9,7 @@
 \begin{document}
 
 \maketitle
-
+\tableofcontents
 \section{Lista 1}
 \begin{problema}
   Seja \(f\colon\Reals^n\to\Reals\) e sejam
@@ -396,13 +396,13 @@ Como estamos aplicando o método de Newton, teremos
  Exercício 7.1
 \end{problema}
 \begin{proof}[Solução]
-  Primeiro Problema:
-  \begin{mini}\label{const1}
+  \begin{enumerate}[label=(\roman)]
+  \item Primeiro Problema:
+  \begin{mini}
     {}{x_1^2 + x_2^2+ x_3^2 -2x_1x_2}{}{}  
     \addConstraint{2x_1+x_2}{=4}
     \addConstraint{5x_1 -x_2}{=8}.
   \end{mini}
-  \begin{enumerate}[label=(\roman)]
   Primeiro, notamos que as restrições do problema podem ser reescritas
     como \(Ax=b\) onde \[A=\begin{pmatrix}
         2 & 1 & 0 \\ 5 & 0 & -1
@@ -414,11 +414,11 @@ Como estamos aplicando o método de Newton, teremos
     \((1+\alpha, 2 -2\alpha, -3 + 5\alpha)\). Note que a região viável do
     problema tem dimensão 1 assim como \(\Ker(A)\). Usamos a forma geral da
     região viável para considerar o seguinte problema sem restrições
-     \begin{mini*}\label{unconst1}
+     \begin{mini}
     {}{(1+\alpha)^2 + (2-2\alpha)^2+ (-3+5\alpha)^2
       -2(1+\alpha)(2-2\alpha)=34\alpha^2-36\alpha +10}{}{}  
     \addConstraint{\alpha}{\in\Reals}.
-    \end{mini*}
+    \end{mini}
     Finalmente, vamos escrever as condições de otimalidade para cada um dos
     problemas acima. Para \label{const1}, se \(x^\ast\) é ótimo local então
     existe \(\lambda\in\Reals^2\) tal que \[\nabla f(x^\ast)=\begin{pmatrix}
