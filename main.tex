@@ -2,7 +2,7 @@
 
 \documentclass[12pt,twoside,a4paper]{article}
 \usepackage{packages}
-\title{MAP5747 Programação Não Linear: Exercícios}
+\title{MAP5747 Programação Não Linear: Alguns Exercícios}
 \author{Ariel Serranoni}
 \date{2º semestre de 2019}
 
@@ -11,7 +11,6 @@
 \maketitle
 
 \section{Lista 1}
-
 \begin{problema}
   Seja \(f\colon\Reals^n\to\Reals\) e sejam
   \(B\subseteq A\subseteq\Reals^n\). Se
@@ -163,7 +162,7 @@ Exercício 3
 \begin{proof}[Solução]
 Queremos resolver o seguinte problema não linear
 \begin{maxi}
-  {}{xy(x-y)}{\label{REP}}{}  
+  {}{xy(x-y)}{}{}  
     \addConstraint{x+y}{=8}
     \addConstraint{x}{\geq 0}
     \addConstraint{y}{\geq 0}.
@@ -171,7 +170,7 @@ Queremos resolver o seguinte problema não linear
 Utilizando a primeira restrição para obter que \(y=8-x\) e substituindo na
 função objetivo, obtemos o problema
 \begin{maxi}
-  {}{x(8-x)(x-())}{\label{REP}}{}  
+  {}{x(8-x)(x-())}{}{}  
   \addConstraint{x+y}{=8}
   \addConstraint{x}{\geq 0}
   \addConstraint{y}{\geq 0}.
@@ -190,13 +189,20 @@ função objetivo, obtemos o problema
 \end{proof}
 
 \begin{problema}
-  Exercício 14
+  Exercício 14***
 \end{problema}
 \begin{proof}[Solução]
   Primeiro calculamos algumas coisas, obtendo
   \begin{enumerate}
-  \item \(\phi(\alpha)=f(\alpha d)=\frac{\alpha^4d_2^2}{d}\)  
+  \item \(\phi(\alpha)=f(\alpha
+    d)=\frac{\alpha^4d_2^4}{2}+\alpha^2d_1^2-\frac{3}{2}\alpha^3d_1d_2^2.\)
+  \item \(\phi^\prime(\alpha)=2\alpha^3d_2^4+ 2\alpha d_1^2 -
+    \frac{9}{2}\alpha^2d_1d_2^2.\)
+  \item \(\phi^{\prime\prime}=6\alpha^2d_2^4+2d_1^2-9\alpha d_1d_2.\)
   \end{enumerate}
+ Daí vemos que \(\phi^\prime(0)=0\) e que \(\phi^{\prime\prime}(0)\geq 0\) e que
+ essa última desigualdade vale estritamente sempre que \(d_1\not =0\). Além
+ disso, note que \(f(0)=0\). Por fim, seja \(\varepsilon\in\Reals_{++}\) 
 \end{proof}
 
 \begin{problema}
@@ -385,6 +391,146 @@ Como estamos aplicando o método de Newton, teremos
 \end{proof}
   
 \section{Outros Exercícios}
+\subsection{Ana}
+\begin{problema}
+ Exercício 7.1
+\end{problema}
+\begin{proof}[Solução]
+  Primeiro Problema:
+  \begin{mini}\label{const1}
+    {}{x_1^2 + x_2^2+ x_3^2 -2x_1x_2}{}{}  
+    \addConstraint{2x_1+x_2}{=4}
+    \addConstraint{5x_1 -x_2}{=8}.
+  \end{mini}
+  \begin{enumerate}[label=(\roman)]
+  Primeiro, notamos que as restrições do problema podem ser reescritas
+    como \(Ax=b\) onde \[A=\begin{pmatrix}
+        2 & 1 & 0 \\ 5 & 0 & -1
+      \end{pmatrix} \text{ e } b=\begin{pmatrix}4 \\ 8\end{pmatrix}\]
+    Fazendo algumas contas, obtemos que \(\Ker(A)=\text{Span}(\{(1,-2,5)\})\). Usando
+    isso para construir a parametrização, notamos que o ponto \((1,2,-3)\) é
+    viável no nosso problema, e daí todo ponto viável é da forma
+    \((1,2,-3)+\alpha (1,-2,5)\). Ou seja, pontos viáveis são da forma
+    \((1+\alpha, 2 -2\alpha, -3 + 5\alpha)\). Note que a região viável do
+    problema tem dimensão 1 assim como \(\Ker(A)\). Usamos a forma geral da
+    região viável para considerar o seguinte problema sem restrições
+     \begin{mini*}\label{unconst1}
+    {}{(1+\alpha)^2 + (2-2\alpha)^2+ (-3+5\alpha)^2
+      -2(1+\alpha)(2-2\alpha)=34\alpha^2-36\alpha +10}{}{}  
+    \addConstraint{\alpha}{\in\Reals}.
+    \end{mini*}
+    Finalmente, vamos escrever as condições de otimalidade para cada um dos
+    problemas acima. Para \label{const1}, se \(x^\ast\) é ótimo local então
+    existe \(\lambda\in\Reals^2\) tal que \[\nabla f(x^\ast)=\begin{pmatrix}
+        2x_1^\ast - 2x_2 \\ 2x_2 - 2x_1 \\ 2x_3\end{pmatrix}=\underbrace{\begin{pmatrix}
+      2 & 5 \\ 1 & 0 \\ -1 &
+      0\end{pmatrix}}_{A^\top}\underbrace{\begin{pmatrix}\lambda_1 \\
+      \lambda_2\end{pmatrix}}_{\lambda}\]
+    e também \(\nabla^2f(x^\ast)=\begin{pmatrix}a\end{pmatrix}\)
+ 
+  \end{enumerate}
+\end{proof}
+\begin{problema}
+ Exercício 7.2
+\end{problema}
+\begin{proof}[Solução]
+  \begin{enumerate}
+    \item Notemos que \(\nabla f(x,y)=(y,x)^\top\) e que \(\begin{pmatrix} 0 & 1
+        \\ 1 & 0 \end{pmatrix}\). Assim, nenhum ponto satisfaz as condições
+      nescessárias de otimalidade.
+     \item Adicionando a restrição \(x+y=0\) acabamos tendo que minimizar
+       \(-x^2\) com \(x\in\Reals\), e então o problema não tem solução e nem
+       valor ótimo finito
+     \item  Trocando a restrição por \(x-y=0\) acabamos tendo que minimizar
+       \(x^2\) com \(x\in\Reals\), obtendo a solução \(x=0\).
+      \item As restrições podem mudar tudo num problema.
+    \end{enumerate}
+  \end{proof}
+  \begin{problema}
+   Exercício 7.3
+ \end{problema}
+ \begin{proof}[Solução]
+Temos que resolver o problema
+     \begin{mini*}
+    {}{\frac{1}{2}\|x\|^2}{}{}  
+    \addConstraint{x_1+2x_2+2x_3}{=4}.
+    \end{mini*}
+Sabendo que a função objetivo é convexa e fazendo algumas contas obtemos que
+\(x^\ast=\lambda^\ast(1,2,2)\). Substituindo este valor na restrição do problema
+segue que \(\lambda=\frac{4}{9}\) e daí já podemos concluir que a solução é \((\frac{4}{9},\frac{8}{9},\frac{8}{9})^\top\).
+\end{proof}
+\begin{problema}
+ Exercício 7.4 
+\end{problema}
+\begin{proof}[Solução]
+Primeiro, note que podemos equivalentemente minimizar a função \(g(x)\coloneqq
+\frac{1}{2}\|x\|^2\) com as mesmas restrições. Também notamos que como posto de \(A\) é
+\(m\) a matriz \(AA^\top\) é inversível. Como \(\bar{x}\) é ótimo para o
+problema temos que \(\bar{x}\) satisfaz as condições nescessárias de
+otimalidade. Isto é, sabemos que existe \(\lambda\) tal que \(\nabla
+g(\bar{x})=\bar{x}=A^\top \lambda\). Multiplicando esta última igualdade por
+\(A\) concluímos que \(A\bar{x}=AA^\top\lambda\) e então como \(A\bar{x}=b\)
+segue que \(\lambda= (AA^\top)^{-1}b\). Substituindo o valor de \(\lambda\) nas
+condições de otimalidade segue que \(\bar{x}=A^\top(AA^\top)^{-1}b\).  
+\end{proof}
+\begin{problema}
+Exercício 7.5  
+\end{problema}
+\begin{proof}[Solução]
+A afirmação é verdadeira pois as hipóteses do enunciado são condições
+suficientes de otimalidade local.
+\end{proof}
+\begin{problema}
+Exercício 7.6  
+\end{problema}
+\begin{proof}[Solução]
+ Seja \(m\coloneqq\text{rank}(Q)\) e considere a função a função
+ \(\varphi(\alpha)\coloneqq f(x_0+Z\alpha)\), onde \(Z\colon
+ \Reals^{n-m}\to\text{Ker}(Q)\).
+ Daí temos que \(\varphi^{\prime\prime}(\alpha)=Z^\top Q Z > 0\) e portanto
+ precisamos encontrar \(\bar{\alpha}\) tal que
+ \(\varphi^\prime(\bar{\alpha})=0\). Segue
+\begin{align*}
+  \varphi^\prime(\alpha)&=Z^\top\nabla f(x_0+Z\alpha)
+  \\&= Z^\top(Q(x_0+Z\alpha)+ p)\\&=Z^\top Qx_0+Z^\top Q Z\alpha + Z^\top p
+\end{align*}
+E portanto \(\varphi^\prime(\alpha)=0\) se e só se
+\begin{align*}
+  \alpha= - (Z^\top Q Z)^{-1}  Z^\top(Q x_0 + p).
+\end{align*}
+Assim concluímos que a solução ótima do problema pode ser escrita como
+\[x_0-Z (Z^\top Q Z)^{-1}  Z^\top(Q x_0 + p).\]
+\end{proof}
+\begin{problema}
+ Exercício 7.7
+\end{problema}
+\begin{proof}[Solução]
+  Para \(x\) fixado, a solução do problema de otimização
+  \begin{mini}
+  {}{\|\nabla f(x)-p\|}{}{}  
+    \addConstraint{p}{\in\Ker(A)}.
+  \end{mini}
+ é a projeção ortogonal de \(\nabla f(x)\) em \(\Ker(A)\). A relação desse vetor
+ com o primeiro problema é que esta é uma direção viável de descida!
+\end{proof}
+\begin{problema}
+Exercício 7.8 
+\end{problema}
+\begin{proof}[Solução]
+Considere o seguinte problema de otimização:
+\begin{mini}
+  {}{\frac{1}{2}\|x-y\|^2}{}{}  
+  \addConstraint{\begin{pmatrix}
+    A & 0 \\ 0 & C\end{pmatrix}\begin{pmatrix} x \\
+    y \end{pmatrix}}{=\begin{pmatrix} b \\ d \end{pmatrix}}.
+\end{mini}
+Vamos escrever as condições de otimalidade para este problema. Primeiro, note
+que \(\nabla f (x,y) = (x,-y)=(A^\top\lambda_1, C^\top\lambda_2)\).
+\end{proof}
+\begin{problema}
+  Exercício 8.1
+\end{problema}
+
 \subsection{Nocedal}
 \begin{problema}
   Exercício 2.6
@@ -394,6 +540,7 @@ Seja \(x\) um mínimo local isolado, então existe uma vizinhança \(V\) de \(x\
 tal que \(x\) é o único mínimo local de \(f\) em \(V\). Neste caso, temos que
 \(f(v)>f(x)\) para cada \(x\not = v\in V\). Logo \(x\) é mínimo local estrito em \(V\).  
 \end{proof}
+
 NOTE QUE NÂO VALE A VOLTA!!!!!
 
 \subsection{P1 do Ano Passado}

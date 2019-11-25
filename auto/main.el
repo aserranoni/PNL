@@ -3,6 +3,7 @@
  (lambda ()
    (TeX-add-to-alist 'LaTeX-provided-class-options
                      '(("article" "12pt" "twoside" "a4paper")))
+   (add-to-list 'LaTeX-verbatim-macros-with-braces-local "href")
    (add-to-list 'LaTeX-verbatim-macros-with-braces-local "path")
    (add-to-list 'LaTeX-verbatim-macros-with-braces-local "url")
    (add-to-list 'LaTeX-verbatim-macros-with-braces-local "nolinkurl")
@@ -19,8 +20,9 @@
     "rosenmin"
     "rosenfunc"
     "gradrosen"
-    "REP"
     "phiconv"
-    "alphabuscaex"))
+    "alphabuscaex"
+    "const1"
+    "unconst1"))
  :latex)
 
