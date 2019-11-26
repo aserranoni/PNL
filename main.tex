@@ -396,7 +396,7 @@ Como estamos aplicando o método de Newton, teremos
  Exercício 7.1
 \end{problema}
 \begin{proof}[Solução]
-  \begin{enumerate}[label=(\roman)]
+  \begin{enumerate}
   \item Primeiro Problema:
   \begin{mini}
     {}{x_1^2 + x_2^2+ x_3^2 -2x_1x_2}{}{}  
@@ -422,12 +422,42 @@ Como estamos aplicando o método de Newton, teremos
     Finalmente, vamos escrever as condições de otimalidade para cada um dos
     problemas acima. Para \label{const1}, se \(x^\ast\) é ótimo local então
     existe \(\lambda\in\Reals^2\) tal que \[\nabla f(x^\ast)=\begin{pmatrix}
-        2x_1^\ast - 2x_2 \\ 2x_2 - 2x_1 \\ 2x_3\end{pmatrix}=\underbrace{\begin{pmatrix}
+        2x_1^\ast - 2x_2^\ast \\ 2x_2^\ast - 2x_1^\ast \\ 2x_3^\ast\end{pmatrix}=\underbrace{\begin{pmatrix}
       2 & 5 \\ 1 & 0 \\ -1 &
       0\end{pmatrix}}_{A^\top}\underbrace{\begin{pmatrix}\lambda_1 \\
       \lambda_2\end{pmatrix}}_{\lambda}\]
-    e também \(\nabla^2f(x^\ast)=\begin{pmatrix}a\end{pmatrix}\)
- 
+    e também \(\nabla^2f(x^\ast)=\begin{pmatrix}2 & -2 & 0 \\ -2 & 2 & 0 \\ 0 &
+      0 & 2 \end{pmatrix}\) seja positiva semidefinida em \(\Ker(A)\) A condição
+    suficiente para este
+    problema é que a hessiana seja positiva definida em \(\Ker(A)\). Para o problema
+    irrestrito, as condiçõs nescessárias de otimalidade local são que \(68\alpha
+    - 36=0\) e que \(68\geq 0\) e a condição suficiente é que \(68>0\).
+\item O segundo problema que vamos considerar é 
+ \begin{mini}
+    {}{x_1^2 + 2x_2^2 - 2x_1 - 2x_1x_2}{}{}  
+    \addConstraint{2x_1+x_2}{=1}.
+  \end{mini}
+  Novamente, escrevamos as restrições do problema como \(Ax=b\), onde \[
+    A=\begin{pmatrix}2 & 1\end{pmatrix} \text{ e } b=\begin{pmatrix}
+      1 \end{pmatrix}.\]
+  Neste caso é fácil ver que \(\Ker(A)=\text{Span}(\{(1,-2)\})\) e que \((0,1)\)
+  é viável no nosso problema. Dessa forma, todo ponto viável é da forma
+  \((\alpha, 1-2\alpha)\). Portanto, podemos considerar o seguinte problema
+  irrestrito
+   \begin{mini}
+    {}{\alpha^2 + 2(1-2\alpha)^2 - 2\alpha -
+      2\alpha(1-2\alpha)=13\alpha^2-12\alpha + 2}{}{}  
+    \addConstraint{\alpha}{\in\Reals}.
+  \end{mini}
+  Vamos terminar escrevendo as condições de otimalidade para esses problemas:
+  Para o problema com restrição se \(x^\ast\) é ótimo então existe
+  \(\lambda\in\Reals\)
+  tal que \[\nabla f(x\ast)=\begin{pmatrix}2x_1-2x_2 -2 \\ 4x_2 -
+      2x_1\end{pmatrix}=\begin{pmatrix}1 \\ -2 \end{pmatrix}\lambda\]
+  e também \(\nabla^2f(x^\ast)\) é semidefinida em \(\Ker(A)\). A condição
+  suficiente para este problema é que \(\nabla^2f(x^\ast)\) seja positiva
+  definida em \(\Ker(A)\). Para o problema irrestrito a condição nescessária e
+  suficiente é  que \(26\alpha-12=0\). 
   \end{enumerate}
 \end{proof}
 \begin{problema}
@@ -525,12 +555,200 @@ Considere o seguinte problema de otimização:
     y \end{pmatrix}}{=\begin{pmatrix} b \\ d \end{pmatrix}}.
 \end{mini}
 Vamos escrever as condições de otimalidade para este problema. Primeiro, note
-que \(\nabla f (x,y) = (x,-y)=(A^\top\lambda_1, C^\top\lambda_2)\).
+que \[\nabla f (x,y) = 2(x-y,y-x)=(A^\top\lambda_1, C^\top\lambda_2)\].
 \end{proof}
 \begin{problema}
   Exercício 8.1
 \end{problema}
+\begin{problema}
+  Exercício 8.2 ????
+\end{problema}
+\begin{proof}[Solução]
+  Se \(x\) é minimizador global do problema, é claro que \(x\) é minimizador
+  local do mesmo. Por outro lado...
+\end{proof}
+\begin{problema}
+ Exercício 8.3
+\end{problema}
+\begin{proof}[Solução]
+Primeiro notamos que as afirmações são mutuamente exclusivas e que a alternativa
+b é a verdadeira. Como contra-exemplo para A, considere
+\end{proof}
+\begin{problema}
+Exercício 8.4
+\end{problema}
+\begin{proof}[ Solução]
+  \begin{enumerate}
+    \item É fácil ver que \((\frac{1}{2},\frac{1}{2})\) é a solução para o
+      problema.
+    \item Vamos calcular a solução para o problema
+      \begin{mini}
+  {}{x_1^2 + x_2^2 + \mu(x_1+x_2-1)^2}{}{}  
+  \addConstraint{x}{\in\Reals^2}.
+\end{mini}
+Fazendo algumas contas, obtemos que
+\[\nabla f(x)=\begin{pmatrix}
+(1+\mu)x_1+\mu x_2-\mu \\ (1+\mu)x_2+\mu x_1 - \mu
+\end{pmatrix} \text{ e } \nabla^2f(x)=\begin{pmatrix}
+(1+\mu) & \mu \\ \mu & (1+\mu)
+\end{pmatrix}\in\mathbb{S}^n_+ .\]
+Portanto, só precisamos encontar \(x^\ast\) tal que \(\nabla f(x^\ast)=0\).
+Fazendo mais algumas contas segue que \(x_1^\ast=x_2^\ast=\frac{\mu}{1+2\mu}.\)
+\item Trivial
+\item Vamos agora analisar o problema \begin{mini}
+  {}{x_1^3 + x_2^3 + \mu(x_1+x_2-1)^2}{}{}  
+  \addConstraint{x}{\in\Reals^2}.
+\end{mini}
+Fazendo algumas contas, obtemos que
+\[\nabla f(x)=\begin{pmatrix} 3x_1^2 + 2\mu(x_1+x_2-1) \\ 3x_2^2 +
+    2\mu(x_1+x_2-1) \end{pmatrix}.\]
+ \end{enumerate}
+\end{proof}
+\begin{problema}
+  Exercício 8.6
+\end{problema}
+\begin{proof}[Solução]
+  \begin{enumerate}
+    \item Notamos que \(\nabla_xL(\bar{x},\bar{\lambda})=\nabla f(x)+
+      A^\top\lambda = 0.\) Portanto \((\bar{x},\bar{\lambda})\) é um ponto
+      estacionário de \(L\).
+    \item Seja \(x\) tal que \(Ax=b\). Daí temos, para todo \(\lambda\)
+      \[\phi(\lambda)=\min_x\{f(x)+\lambda^\top\underbrace{(Ax-b)}_{=0}\}\leq f(x).\]
+      \item \[\max_\lambda{\min_x \{c^\top x -\lambda^\top(Ax-b)\}}.\]
+   \end{enumerate}
+ \end{proof}
+ \begin{problema}
+   Exercício 8.7
+ \end{problema}
+ \begin{proof}[Solução]
+   Se \(\bar{x}\) é solução ótima para o problema dado, então existe
+   \(\lambda\in\Reals^m\) tal que \begin{align*}\nabla f(\bar{x})=\bar{x}-c &=
+                                                                              A^\top\lambda\\&\iff
+                                    \bar{x}=A^\top\lambda+ c.\end{align*}
+ Aplicando a projeção ortogonal \(P\) em \(\Ker(A)\) e notando que
+ \(A^\top\lambda\in\text{Im}(A^\top)=\Ker(A)^\bot=\Ker(P)\), o resultado segue.
+\end{proof}
+\begin{problema}
+Exercício 8.11  
+\end{problema}
+\begin{proof}[Solução]
+  \begin{enumerate}
+    \item Seja \(Z\colon\Reals^{n-m}\to\Ker(A)\). Então uma solução \(x\) ótima para o problema
+dado satisfaz \(Lx=A^T\lambda\) para algum \(\lambda\in\Reals^m\). Além disso,
+\(\nabla^2 f(x)= L \in S^n_+\). A condição suficiente para a otimalidade local
+de \(x\) é que \(L\in\mathbb{S}_{++}\).
 
+\item A solução será 0.
+\end{enumerate}
+\end{proof}
+
+\begin{problema}
+Exercício 9.6  
+\end{problema}
+\begin{proof}[Solução]
+  \begin{enumerate}
+  \item
+    \[b^\top y = (Ax)^\top y = x^\top A^\top y  \leq x^\top c= c^\top x.\]
+   \item Se \(c=A^\top \lambda\) segue que \(b^\top \lambda \geq b^\top y\) para
+     todo \(y\) pois o item anterior vale com igualdade.
+   \item Trivial.
+    \end{enumerate}
+\end{proof}
+\begin{problema}
+Exercício 9.7
+\end{problema}
+\begin{proof}[Solução]
+ Sabemmos por hipótese que existe \(\lambda\) tal que \(\nabla
+ f(\bar{x})=B\bar{x} + c = A^\top \lambda\). Multiplicando os dois lados desta
+ equação por \(x^\top\) segue
+ \begin{align*}
+   & \bar{x}^\top B \bar{x} + c^\top \bar{x}= \bar{x}^\top A^\top\lambda \\\iff & \bar{x}^\top B \bar{x} + 2c^\top \bar{x}=b^\top\lambda + c^\top \bar{x} \\\iff & 2 f(\bar{x})= b^\top \lambda + c^\top \bar{x}
+ \end{align*}
+e daí o resultado segue. 
+\end{proof}
+
+\begin{problema}
+Exercício 9.8
+\end{problema}
+\begin{proof}[Solução]
+ Primeiro notamos que se \(x\) é ótimo para o problema dado então
+ \(x=\lambda(1,1,\ldots,1)\). Substituindo na restrição segue que
+ \(\lambda=\frac{c}{n}\). Dessa forma obtemos que
+\begin{align*}
+  \prod_{i\in[n]}x_i\leq (\frac{c}{n})^n&\iff (\prod_{i\in[n]}x_i)^{\frac{1}{n}}\leq \frac{c}{n}\\&\iff
+  (\prod_{i\in[n]}x_i)^{\frac{1}{n}}\leq \frac{\sum_{i\in[n]}x_i}{n}.
+\end{align*}
+\end{proof}
+\begin{problema}
+Exercício 9.9
+\end{problema}
+\begin{proof}[Solução]
+Sabemos por hipótese que \(z\) satisfaz \(A^\top(Az-b)=\gamma\). Multiplicando
+os dois lados da equação por \(z^\top\) à esquerda, segue que
+\[z^\top A^\top(Az-b)=z^\top\gamma=0.\]
+Portanto, obtemos que \(\|Az\|=z^\top A^\top b\). Aí por Cauchy-Schwarz segue
+que \(b=Az\).
+\end{proof}
+\begin{problema}
+ Exercício 12.1
+\end{problema}
+\begin{proof}[Solução]
+  O problema proposto pode ser formulado como
+  \begin{mini}
+    {}{\|x-y\|}{}{}  
+    \addConstraint{f(x)}{=0}
+    \addConstraint{g(y)}{=0}.
+  \end{mini}
+  e um exemplo possível é
+  \begin{mini}
+    {}{\|x-y\|}{}{}  
+    \addConstraint{x_1^2+x_2^2+ x_3^2 - 9}{=0}
+    \addConstraint{\sin (y_1+y_2+y_3)-1}{=0}.
+  \end{mini}
+  \end{proof}
+  \begin{problema}
+    Exercício 12.2
+  \end{problema}
+  \begin{proof}[Solução]
+    Claro que é falso. Um contra exemplo é??????
+    \begin{mini}
+    {}{}{}{}  
+    \addConstraint{x-y}{=0}
+ \end{mini}
+ \end{proof}
+\begin{problema}
+Exercício 12.3
+\end{problema}
+\begin{proof}[Solução]
+Como \(\bar{x}\) é solução do problema temos que existe \(\lambda\in\Reals^m\)
+tal que \(\nabla f(x) = \sum_{i\in [m]}\lambda_i\nabla h_i(\bar{x})=0\). Como
+\(\bar{x}\) é regular segue que \(\lambda_i=0\) para todo \(i\).
+Geometricamente, o ponto
+\(\bar{x}\) tamém satisfaz as condições necessárias de otimalidade local mesmo
+se eliminarmos as restrições do problema.
+\end{proof}
+\begin{problema}
+  Exercício 12.4
+\end{problema}
+\begin{proof}[Solução]
+Primeiro calculamos \[\nabla f(x)=\begin{pmatrix} -2x_1 \\ -8x_2 \\ -32
+    x_3 \end{pmatrix}\]
+\begin{enumerate}
+ \item Se adicionamos a restrição \(c(x)\coloneqq x_1-1\) temos que um ponto
+   \(\bar{x}\) satisfaz condições nescessárias de otimalidade local se existe
+   \(\lambda\in\Reals\) tal que \[\nabla f(\bar{x})\]
+  \item
+ \end{enumerate}
+\end{proof}
+\begin{problema}
+Exercício 12.5  
+\end{problema}
+\begin{proof}[Solução]
+Primeiro, notamos que \(A^\top A\in\mathbb{S}^n_+\) pois \(\x^\top A^\top A
+x=\|Ax\|^2\geq 0\). Além disso como \(x\) minimizador do problema temos que
+\(H\) é positiva semidefinida em \(\Ker(A)\) e daí \((Pd)^\top H (Pd)\geq 0 \)
+para todo \(d\in\Reals^n\). Daí o resultado segue 
+\end{proof}
 \subsection{Nocedal}
 \begin{problema}
   Exercício 2.6

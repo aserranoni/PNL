@@ -22,7 +22,6 @@
     "gradrosen"
     "phiconv"
     "alphabuscaex"
-    "const1"
-    "unconst1"))
+    "const1"))
  :latex)
 
